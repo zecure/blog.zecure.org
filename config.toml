@@ -4,9 +4,7 @@ author = "Hendrik Buchwald"
 canonifyurls = true
 paginate = 3
 
-# Needed by Theme demos in exampleSite.
 [params]
-  Author = "Hendrik Buchwald"
   DateForm = "Mon, Jan 2, 2006"
   Twitter = "zecureit"
   Github = "zecure"
@@ -15,6 +13,3 @@ paginate = 3
 
 [Indexes]
   tag ="tags"
-
-[permalinks]
-  post = "/blog/:year/:month/:day/:slug/"
