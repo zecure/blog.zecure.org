@@ -1,0 +1,20 @@
+baseurl = "http://blog.zecure.org"
+title = "Zecure"
+author = "Hendrik Buchwald"
+canonifyurls = true
+paginate = 3
+
+# Needed by Theme demos in exampleSite.
+[params]
+  Author = "Hendrik Buchwald"
+  DateForm = "Mon, Jan 2, 2006"
+  Twitter = "zecureit"
+  Github = "zecure"
+  GoogleAnalyticsUserID = "UA-58987297-3"
+  SyntaxHighlightTheme = "github.min.css"
+
+[Indexes]
+  tag ="tags"
+
+[permalinks]
+  post = "/blog/:year/:month/:day/:slug/"
