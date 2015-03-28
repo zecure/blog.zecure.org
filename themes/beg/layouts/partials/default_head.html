@@ -22,6 +22,7 @@
                         {{ range where .Site.Recent "Type" "page" }}
                         <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
                         {{ end }}
+                        <li><a href="{{ .Site.BaseUrl }}/index.xml" target="_blank">RSS</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
