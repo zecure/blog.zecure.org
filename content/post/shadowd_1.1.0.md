@@ -113,7 +113,7 @@ Percentage of the requests served within a certain time (ms)
  100%   1247 (longest request)
 ```
 
-Without protection the server processes 84.24 requests per second, with protection it processes 58.44 requests per second. This means Shadow Daemon decreases the performance in this test by about 30%. That is not bad, not bad at all, because if you do not have a website with thousands of visitors per second 30% will not be noticeable.
+Without protection the server processes 84.24 requests per second, with protection it processes 58.44 requests per second. This means Shadow Daemon decreases the performance in this test by about 41%. That is not bad, not bad at all, because if you do not have a website with thousands of visitors per second 41% will not be noticeable.
 
 <img src="/img/performance_pie.svg" title="Requests per second" style="width:100%" />
 
