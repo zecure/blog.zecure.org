@@ -9,7 +9,6 @@ paginate = 3
   Twitter = "zecureit"
   Github = "zecure"
   GoogleAnalyticsUserID = "UA-58987297-3"
-  SyntaxHighlightTheme = "github.min.css"
 
 [Indexes]
   tag ="tags"
