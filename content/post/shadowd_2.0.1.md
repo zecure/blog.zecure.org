@@ -1,6 +1,6 @@
 +++
 title = "shadowd 2.0.1"
-description = "There was a bug in jsoncpp regarding null-bytes. It was fixed a year ago, but most packet managers still ship affected versions. This makes it possible to bypass the shadowd tests with null-bytes."
+description = ""
 tags = [
     "release",
     "shadowd",
@@ -32,7 +32,7 @@ After some digging I found [this](https://sourceforge.net/p/jsoncpp/patches/18/)
 
 ## The bug fix
 
-The new version of shadowd ships with jsoncpp. The source of the lib is directly compiled into the binary. This is the only (usable) way to ensure that shadowd is not affected by the problem, because it might take years until most packet managers update their versions of jsoncpp. On a positive note, this means there is one dependency less required to install shadowd.
+The new version of shadowd ships with jsoncpp. The source of the library is directly compiled into the binary. This is the only (usable) way to ensure that shadowd is not affected by the problem, because it might take years until most packet managers update their versions of jsoncpp. On a positive note, this means there is one dependency less required to install shadowd.
 
 So make sure to update to shadowd 2.0.1 as fast as possible to apply this patch.
 
@@ -55,4 +55,4 @@ To prevent this problem from happening again (e.g., when updating the json lib) 
 
 ## Lessons learned
 
-The lesson I learned (again) today is to not trust anyone or anything. Even though shadowd could handle null-bytes fine, one of its dependencies could not. The same could be true for web applications you are developing or using yourself. Even if the actual code of the application does not contain bugs, are you certain that there are no bugs in the dozens of libraries the application is uing? So better be prepared and protect your applications!
+The lesson I learned (again) today is to not trust anyone or anything. Even though shadowd could handle null-bytes fine, one of its dependencies could not. The same could be true for web applications you are developing or using yourself. Even if the actual code of the application does not contain bugs, are you certain that there are no bugs in the dozens of libraries the application is using? So better be prepared and protect your applications!
