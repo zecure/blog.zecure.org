@@ -1,6 +1,6 @@
 +++
 title = "shadowd 2.0.1"
-description = ""
+description = "There was a bug in jsoncpp regarding null-bytes. It was fixed a year ago, but most packet managers still ship affected versions. This makes it possible to bypass the shadowd tests with null-bytes."
 tags = [
     "release",
     "shadowd",
@@ -14,7 +14,7 @@ categories = [
 menu = "main"
 +++
 
-**TL;DR:** There was a bug in jsoncpp regarding null-bytes. It was fixed a year ago, but most packet managers still ship affected versions. This makes it possible to bypass the shadowd tests with null-bytes in many cases.
+**TL;DR:** There was a bug in jsoncpp regarding null-bytes. It was fixed a year ago, but most packet managers still ship affected versions. This makes it possible to bypass the shadowd tests with null-bytes.
 
 ## Discovery of the bug
 
@@ -24,7 +24,7 @@ I operate a large amount of [honeypots](https://shadowd.zecure.org/tutorials/hon
 
 The parameter *arguments* contains a serialized PHP object and an URL, so this should result in a blacklist impact of 6. More than enough to trigger the alarm, but it did not. After looking at the recorded parameters it was pretty obvious why: *arguments* was cut off after the first null-byte (*%00*), so it was incomplete and did not trigger any filters at all.
 
-    O:12:&quot;vB_dB_Result&quot;:2:{s:5:&quot; 
+    O:12:"vB_dB_Result":2:{s:5:" 
 
 This seemed odd to me, considering that shadowd uses *std::string*. Unlike char arrays the C++ standard library strings are not terminated by null-bytes, so this should not have happened. I started debugging shadowd and noticed that strings were cut off by jsoncpp when decoding client input with null-bytes. As a result of that all security checks in shadowd used the incomplete versions, even though they could handle null-bytes perfectly fine themselves.
 
@@ -44,8 +44,8 @@ To prevent this problem from happening again (e.g., when updating the json lib) 
         swd::request_ptr request(new swd::request);
         swd::request_handler request_handler(request, swd::cache_ptr(), swd::storage_ptr());
 
-        request->set_content("{\"version\":\"\",\"client_ip\":\"\",\"caller\":\"\",\"resource\":"
-         "\"foo\\u0000bar\",\"input\":{},\"hashes\":{}}");
+        request->set_content("{\"version\":\"\",\"client_ip\":\"\",\"caller\":\"\","
+         "\"resource\":\"foo\\u0000bar\",\"input\":{},\"hashes\":{}}");
         BOOST_CHECK(request_handler.decode() == true);
 
         std::stringstream expected;
