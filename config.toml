@@ -1,4 +1,4 @@
-baseurl = "http://blog.zecure.org"
+baseurl = "https://blog.zecure.org"
 title = "Zecure"
 author = "Hendrik Buchwald"
 canonifyurls = true
