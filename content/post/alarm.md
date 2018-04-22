@@ -211,5 +211,56 @@ Don't forget to restart *lighttpd* to load the new configuration file.
 
 
 ## Client Setup
+Prepare a *Raspberry Pi* with *Raspbian Stretch*, install the camera, and connect it to the internet.
+
+If you are using a Raspberry Pi camera module you have to load the kernel module `bcm2835-v4l2` to create a `/dev/video` device for the camera.
+A video device is required for `motion` to work properly. You can load the module manually by executing the following.
+
+    modprobe bcm2835-v4l2
+
+Since you do not want load it manually every time you start your Raspberry Pi add `bcm2835-v4l2` to the file `/etc/modules` instead.
+
+Next, install the required software.
+
+    apt update
+    apt install motion
+
+Replace the file `/etc/motion/motion.conf` with the following content.
+
+    daemon on
+    process_id_file /var/lib/motion/motion.pid
+    videodevice /dev/video0
+    
+    width 800
+    height 600
+    framerate 5
+    minimum_frame_time 1
+    lightswitch 50
+    threshold 2500
+    
+    output_pictures on
+    target_dir /var/lib/motion/images
+    on_picture_save curl -F "alarm[file]=@%f" -u alarm:password https://example.org/upload
+
+Make sure to replace the credentials and server address for `on_picture_save`. You might want to change other parameters as well in case you are not happy with the results.
+
+Finally, create the file `/usr/bin/alarm_status`, make it executable, and run it every minute with cron.
+
+    #!/bin/bash
+    curl --fail -u alarm:password https://example.org/ping
+    if [ $? -eq 0 ]; then
+       /etc/init.d/motion start
+    else
+       /etc/init.d/motion stop
+    fi
+
+Make sure to replace the credentials and server address for `curl`.
+
+    chmod 750 /usr/bin/alarm_status
+    crontab -e
+
+    * * * * * /usr/bin/alarm_status
+
+This will both tell the server that the Raspberry Pi is still alive and it also allows to turn `motion` on or off without having to expose ports.
 
 ## Phone Control
