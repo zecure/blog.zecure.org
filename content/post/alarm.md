@@ -272,3 +272,17 @@ Make sure to replace the credentials and server address for `curl`.
 This will both tell the server that the Raspberry Pi is still alive and it also allows to turn `motion` on or off without having to expose ports.
 
 ## Phone Control
+I do not want to have to enable or disable the alarm system manually, that would be too much work.
+My first approach was to detect my mobile phone in the network and enable the alarm if it is not found.
+Unfortunately the phone automatically enters a power saving mode where it will not be reachable in the network, so it did not work as expected.
+So I moved to the Android application *Tasker* instead that allows me to execute actions on certain events.
+Currently, I am using the presence of my wifi to enable or disable the alarm.
+
+<img width="49%" src="/img/alarm/tasker2.png" />
+<img width="49%" src="/img/alarm/tasker3.png" />
+
+It is still possible to see the current status, and to enable or disable the alarm manually through a web interface as well. Simply use your admin user to access `/status`.
+
+<img width="100%" src="/img/alarm/tasker1.png" />
+
+
