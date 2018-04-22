@@ -1,5 +1,5 @@
 +++
-title = "shadowd 1.1.0"
+title = "Release of shadowd 1.1.0"
 description = ""
 tags = [
     "release",
