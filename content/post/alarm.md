@@ -29,8 +29,8 @@ There is a certain comfort in knowing that your home is safe and secure. This ca
 Most systems are closed, connected to a cloud that you have no control over, and - as history has shown often enough - they tend to be incredibly insecure.
 So basically they are a blackbox bug that you install in your own home. Bummer.
 
-This was not an option for me, so I decided to make my own alarm system instead consisting only out of [free software](https://en.wikipedia.org/wiki/Free_software). How hard could it possibly be?
-Spoiler, not very. It still took some time and effort to create and combine all required components as there was no existing software that met all my requirements, so I had to develop my one.
+This was not an option for me, so I decided to make my own alarm system instead consisting out of [free software](https://en.wikipedia.org/wiki/Free_software). How hard could it possibly be?
+Spoiler, not very. It still took some time and effort to create and combine all required components as there was no existing software that met all my requirements, so I had to develop my own.
 
 This blog post documents the whole setup process, both as a documentation for myself and as a tutorial for other people that also want to build their own secure alarm system.
 
@@ -305,16 +305,17 @@ Make sure to replace the credentials and server address for `curl`.
 This will both tell the server that the Raspberry Pi is still alive and it also allows to turn `motion` on or off without having to expose ports.
 
 ## Phone Control
-I do not want to have to enable or disable the alarm system manually, that would be too much work.
-My first approach was to detect my mobile phone in the network and enable the alarm if it is not found.
-Unfortunately the phone automatically enters a power saving mode where it will not be reachable in the network, so it did not work as expected.
-So I moved to the Android application *Tasker* instead that allows me to execute actions on certain events.
+I do not want to enable or disable the alarm system manually, that would be too much work.
+My first approach consisted of a script that tried to detect my mobile phone in the network.
+Unfortunately the phone automatically enters a power saving mode from time to time where it will not be reachable in the network, so this approach did not work as expected.
+So I moved to the Android application *Tasker* instead that allows me to execute actions on certain events. It is not free software but it does its job well.
 Currently, I am using the presence of my wifi to enable or disable the alarm.
 
 <img width="49%" src="/img/alarm/tasker2.png" />
 <img width="49%" src="/img/alarm/tasker3.png" />
 
-It is still possible to see the current status, and to enable or disable the alarm manually through a web interface as well. Simply use your admin user to access `/status`.
+Alternatively you could also enable or disable motion with cron jobs at certain times to avoid having to use *Tasker*.
+It is also possible to enable or disable the alarm manually through the web interface as well. Simply use your admin user to access `/status`.
 
 <img width="100%" src="/img/alarm/tasker1.png" />
 
