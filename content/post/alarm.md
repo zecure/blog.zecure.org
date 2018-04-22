@@ -27,7 +27,7 @@ So basically they are a blackbox bug that you install in your own home. Bummer.
 This was not an option for me, so I decided to make my own alarm system instead consisting only out of [free software](https://en.wikipedia.org/wiki/Free_software). How hard could it possibly be?
 Spoiler, not very. It still took some time and effort to create and combine all required components as there was no existing software that met all my requirements.
 
-This blog post documents the setup process of my system.
+This blog post documents the whole setup process, both as a documentation for myself and as a tutorial for other people.
 
 ## Requirements
 The requirements are very simple. All you need is a Linux system with a web cam and a Linux server.
@@ -42,7 +42,7 @@ But almost any other camera module or USB web cam will do as well.
 
 TODO: image + link
 
-My server is running **Ubuntu 16.04**. It does not require much ressources, so any cheap VPS will do.
+My server is running **Ubuntu 16.04**. It does not require many resources, so any cheap VPS will do.
 Keep in mind though that this server controls the alarm system, so pick a trustworthy hoster or host it yourself.
 You will need a (sub-) domain for TLS encryption.
 
