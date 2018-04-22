@@ -12,6 +12,7 @@ categories = [
     "Shadow Daemon",
 ]
 menu = "main"
+author = "Hendrik Buchwald"
 +++
 
 **TL;DR:** There was a bug in the library *jsoncpp* regarding null-bytes. It was fixed a year ago, but most packet managers still ship affected versions. If a vulnerable version of the library is used it is possible to bypass shadowd 2.0.0 or earlier.

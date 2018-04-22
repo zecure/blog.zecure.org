@@ -13,6 +13,7 @@ categories = [
     "Shadow Daemon",
 ]
 menu = "main"
+author = "Hendrik Buchwald"
 +++
 
 It is my pleasure to announce the release of *shadowd 1.1.0* as well as *shadowd_ui 1.1.0* of the [Shadow Daemon](https://shadowd.zecure.org/) web application firewall. This update improves the performance, attack detection and ease of use. There are five major changes:

@@ -11,6 +11,7 @@ categories = [
     "Shadow Daemon",
 ]
 menu = "main"
+author = "Hendrik Buchwald"
 +++
 
 At the next [OWASP Ruhrpott](https://www.owasp.org/index.php/OWASP_German_Chapter_Stammtisch_Initiative/Ruhrpott) meeting I will present the current state of the web application firewall [Shadow Daemon](https://shadowd.zecure.org). The main topics of my talk will be the architecture and attack detection of the system, but you can also expect comparisons with other free web application firewalls like *mod_security* and *naxsi*.
