@@ -1,5 +1,5 @@
 +++
-title = "Shadowd Daemon OWASP Talk"
+title = "Shadow Daemon OWASP Talk"
 description = ""
 tags = [
     "talk",
