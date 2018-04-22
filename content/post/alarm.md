@@ -63,7 +63,7 @@ We start by installing all required tools on our Linux server.
 
     add-apt-repository ppa:certbot/certbot
     apt update
-    apt install lighttpd php-cgi php-cli composer git certbot
+    apt install lighttpd php-cgi php-cli php-sqlite3 php-mbstring php-xml composer git certbot
 
 The next step is to download the [alarm server](https://github.com/zecure/alarm-server) and to initialize a *SQLite* database.
 
