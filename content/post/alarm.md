@@ -27,10 +27,10 @@ So basically they are a blackbox bug that you install in your own home. Bummer.
 This was not an option for me, so I decided to make my own alarm system instead consisting only out of [free software](https://en.wikipedia.org/wiki/Free_software). How hard could it possibly be?
 Spoiler, not very. It still took some time and effort to create and combine all required components as there was no existing software that met all my requirements.
 
-This blog post documents the whole setup process, both as a documentation for myself and as a tutorial for other people.
+This blog post documents the whole setup process, both as a documentation for myself and as a tutorial for other people that also want to build their own alarm system.
 
 ## Requirements
-The requirements are very simple. All you need is a Linux system with a web cam and a Linux server.
+The requirements are very simple. All you need is a Linux system with a camera and a Linux server.
 If you want to be able to copy all configuration files from this post though you should make sure to use the same hard- and software as I do.
 
 My alarm node is build out of a **Raspberry Pi 3** running **Raspbian Stretch**. Any Raspberry Pi model will do but model 3 has built-in wifi which is very handy.
