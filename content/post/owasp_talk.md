@@ -11,7 +11,7 @@ categories = [
     "Shadow Daemon",
 ]
 menu = "main"
-url = "shadowd-owasp-ruhrpott"
+url = "/shadowd-owasp-ruhrpott/"
 aliases = [
     "/post/owasp_talk/",
 ]

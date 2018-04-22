@@ -12,7 +12,7 @@ categories = [
     "Development"
 ]
 menu = "main"
-url = "diy-home-alarm-system"
+url = "/diy-home-alarm-system/"
 aliases = [
     "/post/diy-home-alarm-system/",
 ]

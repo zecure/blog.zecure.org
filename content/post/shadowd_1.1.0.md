@@ -13,7 +13,7 @@ categories = [
     "Shadow Daemon",
 ]
 menu = "main"
-url = "release-shadowd_1.1.0"
+url = "/release-shadowd_1.1.0/"
 aliases = [
     "/post/shadowd_1.1.0/",
 ]
