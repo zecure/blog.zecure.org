@@ -16,6 +16,8 @@ menu = "main"
 
 **TL;DR:** There was a bug in jsoncpp regarding null-bytes. It was fixed a year ago, but most packet managers still ship affected versions. This makes it possible to bypass the shadowd tests with null-bytes.
 
+<!--more-->
+
 ## Discovery of the bug
 
 I operate a large amount of [honeypots](https://shadowd.zecure.org/tutorials/honeypots/) to observe and study attacks on web applications. Recently I noticed that one of the web applications (vBulletin 5.1.2) was successfully compromised, but strangely enough the attack was not detected by Shadow Daemon. So I started recording everything and a little bit later I saw a request with the following resource.

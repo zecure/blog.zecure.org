@@ -25,6 +25,8 @@ It is my pleasure to announce the release of *shadowd 1.1.0* as well as *shadowd
 
 There are no new major additions, but this update does improve the overall experience a lot, so I highly recommend to apply it. Most changes are based on feedback, so keep it coming :)
 
+<!--more-->
+
 ## Performance
 
 Talk is cheap, here are some actual benchmarks. The target is the front page of a Wordpress 4.0 installation with four posts. Note the *requests per second*.
