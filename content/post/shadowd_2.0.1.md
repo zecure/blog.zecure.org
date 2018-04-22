@@ -14,7 +14,7 @@ categories = [
 menu = "main"
 +++
 
-**TL;DR:** There was a bug in jsoncpp regarding null-bytes. It was fixed a year ago, but most packet managers still ship affected versions. This makes it possible to bypass the shadowd tests with null-bytes.
+**TL;DR:** There was a bug in the library *jsoncpp* regarding null-bytes. It was fixed a year ago, but most packet managers still ship affected versions. If a vulnerable version of the library is used it is possible to bypass shadowd 2.0.0 or earlier.
 
 <!--more-->
 
