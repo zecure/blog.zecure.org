@@ -282,7 +282,7 @@ Replace the file `/etc/motion/motion.conf` with the following content.
     target_dir /var/lib/motion/images
     on_picture_save curl -F "alarm[file]=@%f" -u alarm:password https://example.org/upload
 
-This tool will automically record images if it detects motion. Every time this happens `curl` gets called and it uploads the image to our server.
+This tool will automatically record images if it detects motion. Every time this happens `curl` gets called and it uploads the image to our server.
 Make sure to replace the credentials and server address for `on_picture_save`. You might want to change other parameters as well in case you are not happy with the results of `motion`.
 
 Finally, create the file `/usr/bin/alarm_status`, make it executable, and run it every minute with cron.
