@@ -11,6 +11,10 @@ categories = [
     "Shadow Daemon",
 ]
 menu = "main"
+url = "shadowd-owasp-ruhrpott"
+aliases = [
+    "/post/owasp_talk/",
+]
 author = "Hendrik Buchwald"
 +++
 
@@ -20,9 +24,9 @@ At the next [OWASP Ruhrpott](https://www.owasp.org/index.php/OWASP_German_Chapte
 
 After the talk I will demonstrate the installation and configuration of *Shadow Daemon* from scratch. I will also use the example installation to show the protection at work by attacking it. You are invited to try it out on your own system in a virtual machine and you will see that the installation is easy and brings many advantages.
 
-The talk will be given in German. If you are interested, this is the date and location:
+The talk will be held in German. If you are interested, this is the date and location:
 
-    04/28/2015 - 07:00 pm
+    04/28/2015 - 07:00 PM
 
     Unperfekthaus
     Friedrich-Ebert-Str. 18

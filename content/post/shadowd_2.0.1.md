@@ -12,6 +12,10 @@ categories = [
     "Shadow Daemon",
 ]
 menu = "main"
+url = "release-shadowd_2.0.1"
+aliases = [
+    "/post/shadowd_2.0.1/",
+]
 author = "Hendrik Buchwald"
 +++
 
