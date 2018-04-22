@@ -73,9 +73,9 @@ The next step is to download the *alarm server* and to initialize a *SQLite* dat
 Next you have to create user accounts.
 
 Your main account has the role *admin*. You can use this account to access the alarm server with a browser.
-All admin accounts are informed by e-mail about new alarms and dead clients.
+All admin accounts are informed by e-mail about new alarms and dead clients. Use the e-mail address of your phone to receive the alarms there.
 
-If you want to disable or enable the alarm automatically through a simple API based on events you need to have an account with the role *api* as well.
+If you want to disable or enable the alarm automatically based on events you need to have an account with the role *api* as well.
 For security reasons this has to be a different user than the admin user because the API is not protected by an anti-CSRF token.
 
 Your third account has the role *alarm*. Create an own user for every *Raspberry Pi* that you want to deploy.
