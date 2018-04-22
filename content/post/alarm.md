@@ -52,16 +52,14 @@ Keep in mind though that this server controls the alarm system, so pick a trustw
 You will need a (sub-) domain for TLS encryption and there should be no other major applications running on the same host.
 
 ## Server Setup
-The server is the central manager of the alarm system. It stores the captured images, sends them to the admins via e-mail, and it tells the local alarm systems if they should turn on or off.
+The server is the manager of the alarm system. It stores the captured images, sends them to the admins via e-mail, and it tells the local alarm systems if they should turn on or off.
 The server is a Symfony 4 web application that provides a small HTTP API as well as a small web interface.
 
 We start by installing all required tools on our Linux server.
 
+    add-apt-repository ppa:certbot/certbot
     apt update
-    apt install lighttpd php-cgi php-cli composer git motion software-properties-common
-    sudo add-apt-repository ppa:certbot/certbot
-    sudo apt-get update
-    sudo apt-get install certbot
+    apt install lighttpd php-cgi php-cli composer git certbot
 
 The next step is to download the *alarm server* and to initialize a *SQLite* database.
 
@@ -71,7 +69,6 @@ The next step is to download the *alarm server* and to initialize a *SQLite* dat
     composer install
     ./bin/console doctrine:database:create
     ./bin/console doctrine:schema:update --force
-
 
 Next you have to create user accounts.
 
@@ -149,7 +146,7 @@ Next, replace `/etc/lighttpd/lighttpd.conf` with the following content.
     server.port                 = 80
     server.reject-expect-100-with-417 = "disable"
 
-    index-file.names            = ( "index.php", "index.html", "index.lighttpd.html" )
+    index-file.names            = ( "index.php", "index.html" )
     url.access-deny             = ( "~", ".inc" )
     static-file.exclude-extensions = ( ".php", ".pl", ".fcgi" )
 
