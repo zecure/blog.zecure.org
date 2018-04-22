@@ -12,9 +12,10 @@ categories = [
     "Development"
 ]
 menu = "main"
+url = "diy-home-alarm-system"
 +++
 
-In this blog post I will explain how to turn a **Raspberry Pi** into an **alarm system** that **detects movements**, **records** them, and **sends** the images to your **phone**.
+In this blog post I will explain how to turn a **Raspberry Pi** into a **home alarm system** that **detects movements**, **records** them, and **sends** the images to your **phone**.
 Additionally, the alarm system will turn on and off automatically based on the location of your phone.
 
 <!--more-->
