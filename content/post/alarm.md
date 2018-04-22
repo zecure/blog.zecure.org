@@ -20,13 +20,11 @@ Additionally, the alarm system will turn on and off automatically based on the l
 <!--more-->
 
 ## Motivation
-There is a certain comfort in knowing that your home is safe and secure.
-
-This can be easily achieved by installing an alarm system. There are more than enough vendors out there that sell their systems, they have a few major drawbacks though.
-Most systems are closed, connected to a cloud that you have no control over, and - as history as shown often enough - incredibly insecure.
+There is a certain comfort in knowing that your home is safe and secure. This can be easily achieved by installing an alarm system. There are more than enough vendors out there that sell their systems for a reasonable price, they have a few major drawbacks though:
+Most systems are closed, connected to a cloud that you have no control over, and - as history as shown often enough - they tend to be incredibly insecure.
 So basically they are a blackbox bug that you install in your own home. Bummer.
 
-This was not an option, so I decided to make my own alarm system instead consisting only out of [free software](https://en.wikipedia.org/wiki/Free_software). How hard could it possibly be?
+This was not an option for me, so I decided to make my own alarm system instead consisting only out of [free software](https://en.wikipedia.org/wiki/Free_software). How hard could it possibly be?
 Spoiler, not very. It still took some time and effort to create and combine all required components as there was no existing software that met all my requirements.
 
 This blog post documents the setup process of my system.
@@ -89,7 +87,7 @@ Your third account has the role *alarm*. Create an own user for every *Raspberry
     ./bin/console fos:user:create alarm
     ./bin/console fos:user:promote alarm ROLE_ALARM
 
-Now all that is left to do for the server is to configure our web server, *lighttpd*. To start the web server we need a valid TLS certificate.
+Now all that is left to do is to configure our web server, *lighttpd*. To securely start the web server we need a valid TLS certificate though.
 It can be obtained from LetsEncrypt.
 
     lighty-enable-mod fastcgi fastcgi-php
