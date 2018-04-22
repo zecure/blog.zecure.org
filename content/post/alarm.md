@@ -314,3 +314,5 @@ It is still possible to see the current status, and to enable or disable the ala
 <img width="100%" src="/img/alarm/tasker1.png" />
 
 And that is it. You now have a fully automated alarm system that stores the recordings safely, informs you on your phone, and it is easily extendable with more cameras.
+
+If you have questions or improvements feel free to post them [here](https://github.com/zecure/blog.zecure.org/issues).
