@@ -73,6 +73,7 @@ The next step is to download the [alarm server](https://github.com/zecure/alarm-
     composer install
     ./bin/console doctrine:database:create
     ./bin/console doctrine:schema:update --force
+    chown -R www-data:www-data var/
 
 Next you have to create user accounts.
 
