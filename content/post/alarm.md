@@ -213,7 +213,15 @@ Don't forget to restart *lighttpd* to load the new configuration file.
 ## Client Setup
 Prepare a *Raspberry Pi* with *Raspbian Stretch*, install the camera, and connect it to the internet.
 
-If you are using a Raspberry Pi camera module you have to load the kernel module `bcm2835-v4l2` to create a `/dev/video` device for the camera.
+If you are using a Raspberry Pi camera module you have to enable it first in the *Raspberry Pi Configuration*.
+
+<img width="100%" src="/img/alarm/raspberry-pi_desktop.jpg" alt="Raspberry Pi Desktop" />
+<img width="49%" src="/img/alarm/raspberry-pi_config2.png" />
+<img width="49%" src="/img/alarm/raspberry-pi_config1.png" />
+
+It is also highly recommended to **change the password**, **disable the auto login**, and to **boot to cli**.
+
+If you are using a Raspberry Pi camera module you also have to load the kernel module `bcm2835-v4l2` to create a `/dev/video` device for the camera.
 A video device is required for `motion` to work properly. You can load the module manually by executing the following.
 
     modprobe bcm2835-v4l2
