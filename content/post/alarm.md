@@ -35,18 +35,20 @@ If you want to be able to copy all configuration files from this post though you
 
 My alarm node is build out of a **Raspberry Pi 3** running **Raspbian Stretch**. Any Raspberry Pi model will do but model 3 has built-in wifi which is very handy.
 
-TODO: image + link
+<a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/" target="_blank">
+  <img width="60%" src="/img/alarm/raspberry-pi.jpg" alt="Raspberry Pi 3" />
+</a>
 
 As camera I use the **Electreeks Raspberry Pi Kamera Modul**. It is equipped with infrared lights (optional) and works both at day and at night. It is also rather small compared to a normal web cam.
 But almost any other camera module or USB web cam will do as well.
 
-TODO: image + link
+<a href="http://electreeks.de/produkte/" target="_blank">
+  <img width="60%" src="/img/alarm/electreeks.png" alt="Electreeks Raspberry Pi Kamera Modul" />
+</a>
 
 My server is running **Ubuntu 16.04**. It does not require many resources, so any cheap VPS will do.
 Keep in mind though that this server controls the alarm system, so pick a trustworthy hoster or host it yourself.
-You will need a (sub-) domain for TLS encryption.
-
-TODO: image + link
+You will need a (sub-) domain for TLS encryption and there should be no other major applications running on the same host.
 
 ## Server Setup
 The server is the central manager of the alarm system. It stores the captured images, sends them to the admins via e-mail, and it tells the local alarm systems if they should turn on or off.
@@ -205,7 +207,31 @@ Now that the certificate exists we can append the following content to `/etc/lig
 	    url.rewrite-if-not-file = ( "(.+)" => "/index.php$1" )
     }
 
-Don't forget to restart *lighttpd* to load the new configuration file.
+Before the web application can be used some configuration parameters have to be set. This can be done in the file `/etc/lighttpd/conf-enabled/15-fastcgi-php.conf`.
+Make sure to set `APP_SECRET`, `MAILER_FROM`, and `MAILER_URL` correctly.
+
+    fastcgi.server += ( ".php" => 
+	    ((
+		    "bin-path" => "/usr/bin/php-cgi",
+		    "socket" => "/var/run/lighttpd/php.socket",
+		    "max-procs" => 1,
+		    "bin-environment" => ( 
+			    "PHP_FCGI_CHILDREN" => "4",
+			    "PHP_FCGI_MAX_REQUESTS" => "10000",
+			    "APP_ENV" => "prod",
+			    "APP_SECRET" => "replace with random value",
+			    "MAILER_FROM" => "alarm@example.org",
+			    "DATABASE_URL" => "sqlite:///%kernel.project_dir%/var/data/data.sqlite",
+			    "MAILER_URL" => "smtp://user:password@example.org:587?encryption=tls"
+		    ),
+		    "bin-copy-environment" => (
+			    "PATH", "SHELL", "USER"
+		    ),
+		    "broken-scriptfilename" => "enable"
+	    ))
+    )
+
+Don't forget to restart *lighttpd* to load the new configuration changes.
 
     /etc/init.d/lighttpd restart
 
@@ -216,10 +242,14 @@ Prepare a *Raspberry Pi* with *Raspbian Stretch*, install the camera, and connec
 If you are using a Raspberry Pi camera module you have to enable it first in the *Raspberry Pi Configuration*.
 
 <img width="100%" src="/img/alarm/raspberry-pi_desktop.jpg" alt="Raspberry Pi Desktop" />
+
+Navigate to *Preferences*, *Raspberry Pi Configuration* as shown in the image above.
+
 <img width="49%" src="/img/alarm/raspberry-pi_config2.png" />
 <img width="49%" src="/img/alarm/raspberry-pi_config1.png" />
 
-It is also highly recommended to **change the password**, **disable the auto login**, and to **boot to cli**.
+There you can enable the camera in the *Interfaces* tab.
+It is also highly recommended to **change the password**, **disable the auto login**, and to **boot to cli** in the *System* tab.
 
 If you are using a Raspberry Pi camera module you also have to load the kernel module `bcm2835-v4l2` to create a `/dev/video` device for the camera.
 A video device is required for `motion` to work properly. You can load the module manually by executing the following.
@@ -285,4 +315,4 @@ It is still possible to see the current status, and to enable or disable the ala
 
 <img width="100%" src="/img/alarm/tasker1.png" />
 
-
+And that is it. You now have a fully automated alarm system that stores the recordings safely, informs you on your phone, and it is easily extendable with more cameras.
