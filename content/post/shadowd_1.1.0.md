@@ -1,5 +1,5 @@
 +++
-title = "shadowd 1.1.0"
+title = "Release of shadowd 1.1.0"
 description = ""
 tags = [
     "release",
@@ -13,6 +13,7 @@ categories = [
     "Shadow Daemon",
 ]
 menu = "main"
+author = "Hendrik Buchwald"
 +++
 
 It is my pleasure to announce the release of *shadowd 1.1.0* as well as *shadowd_ui 1.1.0* of the [Shadow Daemon](https://shadowd.zecure.org/) web application firewall. This update improves the performance, attack detection and ease of use. There are five major changes:
@@ -24,6 +25,8 @@ It is my pleasure to announce the release of *shadowd 1.1.0* as well as *shadowd
  * An option for the whitelist rules generator to automatically unify arrays. This makes it much easier to generate rules for big web applications.
 
 There are no new major additions, but this update does improve the overall experience a lot, so I highly recommend to apply it. Most changes are based on feedback, so keep it coming :)
+
+<!--more-->
 
 ## Performance
 

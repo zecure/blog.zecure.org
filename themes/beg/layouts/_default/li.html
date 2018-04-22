@@ -6,6 +6,7 @@
             <time datetime="{{ .Date.Format .Site.Params.DateForm }}">
                 {{ .Date.Format .Site.Params.DateForm }}
             </time>
+            by {{ .Params.author }}
         </div>
         <h1 class="post-title">
             <a href="{{ .Permalink }}">{{ .Title }}</a>
