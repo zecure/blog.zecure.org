@@ -297,6 +297,8 @@ Finally, create the file `/usr/bin/alarm_status`, make it executable, and run it
        /etc/init.d/motion start
     else
        /etc/init.d/motion stop
+       killall motion
+       rm /var/lib/motion/motion.pid
     fi
 
 Make sure to replace the credentials and server address for `curl`.
@@ -307,6 +309,14 @@ Make sure to replace the credentials and server address for `curl`.
     * * * * * /usr/bin/alarm_status
 
 This will both tell the server that the Raspberry Pi is still alive and it also allows to turn `motion` on or off without having to expose ports.
+
+You may also want to automatically delete old images from the Raspberry Pi after a certain period of time to avoid having to interact with the Raspberry Pi manually.
+It can easily be done by creating the file `/etc/cron.hourly/motionrm` with the following content.
+
+    #!/bin/sh
+    find /var/lib/motion/images/ -type f -mmin +120 -exec rm {} \;
+
+Do not forget to make the file executable by running `chmod +x /etc/cron.hourly/motionrm`.
 
 ## Phone Control
 I do not want to enable or disable the alarm system manually, that would be too much work.
