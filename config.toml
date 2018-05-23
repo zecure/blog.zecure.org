@@ -8,7 +8,6 @@ paginate = 3
   DateForm = "Mon, Jan 2, 2006"
   Twitter = "zecureit"
   Github = "zecure"
-  GoogleAnalyticsUserID = "UA-58987297-3"
 
 [Indexes]
   tag ="tags"
