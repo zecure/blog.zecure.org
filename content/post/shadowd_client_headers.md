@@ -11,9 +11,10 @@ categories = [
     "Shadow Daemon",
 ]
 menu = "main"
-url = "/shadowd_client_headers/"
+url = "/shadowd-client-headers/"
 aliases = [
     "/post/shadowd_client_headers/",
+    "/shadowd_client_headers/"
 ]
 author = "Hendrik Buchwald"
 +++
